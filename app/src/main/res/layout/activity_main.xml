@@ -11,13 +11,14 @@
         android:layout_height="wrap_content"
         tools:context=".MainActivity">
 
-        <FrameLayout
+        <ImageView
             android:id="@+id/imageMock"
             android:layout_width="0dp"
             android:layout_height="300dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/john_wick_chapter_three_ver2" />
 
         <TextView
             android:id="@+id/title"
@@ -136,7 +137,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/descTitle"
+            android:id="@+id/descriptionTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/grid_step_8"
@@ -148,6 +149,7 @@
             app:layout_constraintTop_toBottomOf="@id/chips" />
 
         <TextView
+            android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/grid_step_4"
@@ -155,7 +157,56 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/descTitle" />
+            app:layout_constraintTop_toBottomOf="@id/descriptionTitle" />
+
+        <TextView
+            android:id="@+id/castTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/grid_step_8"
+            android:layout_marginTop="48dp"
+            android:text="Cast &amp; Crew"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/castTitle">
+
+            <include
+                android:id="@+id/actor1"
+                layout="@layout/item_actor"
+                app:layout_constraintEnd_toStartOf="@id/actor2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <include
+                android:id="@+id/actor2"
+                layout="@layout/item_actor"
+                app:layout_constraintEnd_toStartOf="@id/actor3"
+                app:layout_constraintStart_toEndOf="@id/actor1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <include
+                android:id="@+id/actor3"
+                layout="@layout/item_actor"
+                app:layout_constraintEnd_toStartOf="@id/actor4"
+                app:layout_constraintStart_toEndOf="@id/actor2"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <include
+                android:id="@+id/actor4"
+                layout="@layout/item_actor"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/actor3"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="spread" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
